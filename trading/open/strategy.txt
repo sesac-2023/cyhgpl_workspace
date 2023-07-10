@@ -1,0 +1,4 @@
+CREATE TABLE Grades(StudentID INT NOT NULL AUTO_INCREMENT, Math INT, English INT, Science INT, PRIMARY KEY (StudentID));
+
+
+ALTER TABLE grades ADD FOREIGN KEY StudentID REFERENCES students(StudentID);
