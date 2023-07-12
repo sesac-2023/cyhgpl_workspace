@@ -10,7 +10,8 @@ import pandas as pd
 kospi_adr_date = []
 kospi_adr_val = []
 for index, i in enumerate(kospi):
-    kospi_adr_date.append(datetime.datetime.fromtimestamp(int(str(i[0])[:10])))
+    dt = datetime.datetime.fromtimestamp(int(str(i[0])[:10]))
+    kospi_adr_date.append(dt.strftime("%Y")[:4]+dt.strftime("%D")[:2]+dt.strftime("%D")[3:5])
     kospi_adr_val.append(i[1])
 kospi_final = pd.DataFrame(zip(kospi_adr_date, kospi_adr_val), columns=["Date", "ADR"])
 kospi_final.to_csv('./kospi_adr.csv', encoding='euc-kr')
@@ -18,7 +19,8 @@ kospi_final.to_csv('./kospi_adr.csv', encoding='euc-kr')
 kosdaq_adr_date = []
 kosdaq_adr_val = []
 for index, i in enumerate(kosdaq):
-    kosdaq_adr_date.append(datetime.datetime.fromtimestamp(int(str(i[0])[:10])))
+    dt = datetime.datetime.fromtimestamp(int(str(i[0])[:10]))
+    kosdaq_adr_date.append(dt.strftime("%Y")[:4]+dt.strftime("%D")[:2]+dt.strftime("%D")[3:5])
     kosdaq_adr_val.append(i[1])
 kosdaq_final = pd.DataFrame(zip(kospi_adr_date, kospi_adr_val), columns=["Date", "ADR"])
 kosdaq_final.to_csv('./kosdaq_adr.csv', encoding='euc-kr')

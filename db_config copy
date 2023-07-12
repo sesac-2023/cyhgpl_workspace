@@ -1,0 +1,5 @@
+host=localhost
+user=cyhgpl
+password=1596
+database=study
+charset=utf8mb4
